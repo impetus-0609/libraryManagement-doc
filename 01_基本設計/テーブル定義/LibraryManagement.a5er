@@ -1,0 +1,146 @@
+﻿# A5:ER FORMAT:10
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
+
+[Manager]
+ProjectName=LibraryManagement
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=LibraryManagement
+PageInfo="LibraryManagement",4,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=4
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Meiryo UI
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=6
+RDBMSTypeName=PostgreSQL
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Entity]
+PName=m_role
+LName=権限マスタ
+Comment=
+TableOption=
+Page=LIBRARYMANAGEMENT
+Left=1750
+Top=150
+Field="権限コード","role_cd","@CHAR(4)","NOT NULL",0,"","",$00000000,""
+Field="権限名","role_name","@VARCHAR(10)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180227230144
+Position="LIBRARYMANAGEMENT",1750,150
+
+[Entity]
+PName=m_user
+LName=ユーザマスタ
+Comment=
+TableOption=
+Page=LIBRARYMANAGEMENT
+Left=1200
+Top=150
+Field="ユーザID","user_id","@CHAR(4)","NOT NULL",0,"","",$00000000,""
+Field="パスワード","password","@CHAR(4)","NOT NULL",,"","",$FFFFFFFF,""
+Field="権限コード","role_cd","@CHAR(4)","NOT NULL",,"","",$FFFFFFFF,""
+Field="姓（漢字）","familiy_name","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="名（漢字）","first_name","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="姓（カナ）","familiy_name_kana","@VARCHAR(100)",,,"","",$FFFFFFFF,""
+Field="名（カナ）","first_name_kana","@VARCHAR(100)",,,"","",$FFFFFFFF,""
+Field="最終ログイン日時","last_login_date","date",,,"","",$FFFFFFFF,""
+Field="ログイン回数","login_count","integer",,,"","",$FFFFFFFF,""
+Field="ログイン失敗回数","login_failure_count","integer",,,"","",$FFFFFFFF,""
+Field="アカウントロックフラグ","account_lock_flg","boolean",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180227230031
+Position="LIBRARYMANAGEMENT",1200,150
+
+[Entity]
+PName=m_tax_rate
+LName=税率マスタ
+Comment=
+TableOption=
+Page=LIBRARYMANAGEMENT
+Left=1250
+Top=650
+Field="税率","tax_rate","@VARCHAR(2)","NOT NULL",0,"","",$00000000,""
+Field="適用開始日","start_date","@CHAR(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="適用終了日","end_date","@CHAR(8)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180227225117
+Position="LIBRARYMANAGEMENT",1250,650
+
+[Entity]
+PName=t_price_transition
+LName=価格推移
+Comment=
+TableOption=
+Page=LIBRARYMANAGEMENT
+Left=1600
+Top=800
+Field="ISBNコード","isbn_cd","@CHAR(13)","NOT NULL",0,"","",$00000000,""
+Field="税抜価格","price","@INT","NOT NULL",,"","",$FFFFFFFF,""
+Field="登録者","register_dt","@VARCHAR(10)","NOT NULL",,"","",$FFFFFFFF,""
+Field="登録日時","register_date","@DATE","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新者","update_dt","@VARCHAR(10)","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日時","update_date","@DATE","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180227224237
+Position="LIBRARYMANAGEMENT",1600,800
+
+[Entity]
+PName=m_book
+LName=ブックマスタ
+Comment=
+TableOption=
+Page=LIBRARYMANAGEMENT
+Left=200
+Top=150
+Field="ISBNコード","isbn_cd","@CHAR(13)","NOT NULL",0,"","",$00000000,""
+Field="作品名","production_name","@VARCHAR(1000)","NOT NULL",,"","",$FFFFFFFF,""
+Field="作者名","author_name","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="発行元","publisher","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="発行年月日","issued_date","@DATE","NOT NULL",,"","",$FFFFFFFF,""
+Field="税抜価格","price","@INT","NOT NULL",,"","",$FFFFFFFF,""
+Field="ジャンル","category","@VARCHAR(100)",,,"","",$FFFFFFFF,""
+Field="画像パス","book_path","@VARCHAR(100)",,,"","",$FFFFFFFF,""
+Field="説明1","description1","@VARCHAR(5000)",,,"","",$FFFFFFFF,""
+Field="説明2","description2","@VARCHAR(5000)",,,"","",$FFFFFFFF,""
+Field="在庫","stock","@CHAR(1)",,,"","0：在庫無、1：在庫有",$FFFFFFFF,""
+Field="言語","language","@VARCHAR(100)",,,"","",$FFFFFFFF,""
+Field="登録者","resgister_dt","@VARCHAR(10)",,,"","",$FFFFFFFF,""
+Field="登録日時","register_date","date",,,"","",$FFFFFFFF,""
+Field="更新者","update_dt","@VARCHAR(10)",,,"","",$FFFFFFFF,""
+Field="更新日時","update_date","date",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180227230403
+Position="LIBRARYMANAGEMENT",200,150,550,331
